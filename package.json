@@ -7,11 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "cross-env NODE_ENV=production && vite build",
-    "build-ssr": "cross-env NODE_ENV=production && vite build && vite build --ssr && node scripts/generate.js && gulp",
     "serve": "vite preview",
-    "generate": "node scripts/generate.js",
-    "create-app": "node scripts/create.js",
-    "deploy": "node scripts/deploy.ts"
+    "prepare": "npm run smui-theme-light && npm run smui-theme-dark",
+    "smui-theme-light": "smui-theme compile src/theme/smui.css -i src/theme",
+    "smui-theme-dark": "smui-theme compile src/theme/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
     "@babel/standalone": "7.13.9",
@@ -27,12 +26,18 @@
     "rollup-plugin-postcss": "^4.0.0",
     "sass": "^1.35.1",
     "svelte": "^3.38.3",
-    "svelte-materialify": "^0.3.11",
     "svelte-preprocess": "^4.7.3",
     "svelte-waypoint": "^0.1.4",
     "tailwindcss": "^2.2.4",
     "typescript": "^4.3.5",
     "vite": "^2.3.8",
     "vite-plugin-mpa": "1.0.3"
+  },
+  "dependencies": {
+    "ace-code-editor": "^1.2.3",
+    "codemirror": "^5.64.0",
+    "smui-theme": "^6.0.0-beta.4",
+    "svelte-material-ui": "^6.0.0-beta.4",
+    "svelte-spa-router": "^3.2.0"
   }
 }
