@@ -1,0 +1,38 @@
+{
+  "name": "fast-build",
+  "version": "0.0.1",
+  "description": "基于 Svelte 快速搭建体积小、无（低）运行时的页面、组件。",
+  "author": "zhenze@leju.com",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "cross-env NODE_ENV=production && vite build",
+    "build-ssr": "cross-env NODE_ENV=production && vite build && vite build --ssr && node scripts/generate.js && gulp",
+    "serve": "vite preview",
+    "generate": "node scripts/generate.js",
+    "create-app": "node scripts/create.js",
+    "deploy": "node scripts/deploy.ts"
+  },
+  "devDependencies": {
+    "@babel/standalone": "7.13.9",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "@vitejs/plugin-legacy": "^1.4.3",
+    "autoprefixer": "^10.2.6",
+    "cross-env": "^7.0.3",
+    "fast-glob": "^3.2.6",
+    "less": "^4.1.1",
+    "postcss": "^8.3.5",
+    "postcss-flexibility": "^2.0.0",
+    "rollup": "^2.52.6",
+    "rollup-plugin-postcss": "^4.0.0",
+    "sass": "^1.35.1",
+    "svelte": "^3.38.3",
+    "svelte-materialify": "^0.3.11",
+    "svelte-preprocess": "^4.7.3",
+    "svelte-waypoint": "^0.1.4",
+    "tailwindcss": "^2.2.4",
+    "typescript": "^4.3.5",
+    "vite": "^2.3.8",
+    "vite-plugin-mpa": "1.0.3"
+  }
+}
