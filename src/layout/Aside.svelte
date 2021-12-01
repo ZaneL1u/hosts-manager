@@ -1,35 +1,39 @@
 <script lang="ts">
   import { push, location } from "svelte-spa-router";
   import { routes } from "../router/router";
-  import Drawer, { Content, Header, Title, Subtitle } from "@smui/drawer";
-  import List, { Item, Text } from "@smui/list";
+  import {
+    SideNav,
+    SideNavItems,
+    SideNavLink,
+    HeaderNav,
+    HeaderNavItem,
+  } from "carbon-components-svelte";
 
-  console.log($location.toString());
+  export let isOpen = false;
 </script>
 
-<Drawer>
-  <Header>
-    <Title>HOSTS MANAGER</Title>
-    <Subtitle>便捷的管理你的hosts文件</Subtitle>
-  </Header>
-  <Content>
-    {#each routes.toArray() as { path, name }}
-      <List>
-        <Item
-          on:click={async () => {
-            push(path);
-          }}
-          selected={path === $location}
-        >
-          <Text>{name}</Text>
-        </Item>
-      </List>
-    {/each}
-  </Content>
-</Drawer>
+<HeaderNav>
+  {#each routes.toArray() as { path, name }}
+    <HeaderNavItem
+      text={name}
+      on:click={async () => {
+        push(path);
+      }}
+      isSelected={path === $location}
+    />
+  {/each}
+</HeaderNav>
 
-<style>
-  :global(aside) {
-    background-color: rgb(19, 95, 70);
-  }
-</style>
+<SideNav bind:isOpen>
+  {#each routes.toArray() as { path, name }}
+    <SideNavItems>
+      <SideNavLink
+        text={name}
+        on:click={async () => {
+          push(path);
+        }}
+        isSelected={path === $location}
+      />
+    </SideNavItems>
+  {/each}
+</SideNav>

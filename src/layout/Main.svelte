@@ -1,11 +1,13 @@
-<script></script>
+<script>
+  import { Content } from "carbon-components-svelte";
+</script>
 
-<main>
+<Content class="main">
   <slot />
-</main>
+</Content>
 
 <style>
-  main {
+  .main {
     flex: auto;
     overflow: auto;
     position: relative;

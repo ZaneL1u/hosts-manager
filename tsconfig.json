@@ -32,5 +32,5 @@
    * Use globals.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["globals.d.ts", "apps/**/*.ts", "apps/**/*.js" , "apps/**/*.svelte"]
+  "include": ["globals.d.ts", "apps/**/*.ts", "apps/**/*.js", "apps/**/*.svelte"]
 }
