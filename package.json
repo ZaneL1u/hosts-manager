@@ -4,7 +4,11 @@
   "description": "基于 Svelte 快速搭建体积小、无（低）运行时的页面、组件。",
   "author": "zhenze@leju.com",
   "private": true,
+  "main": "./electron.js",
+  "license": "MIT",
   "scripts": {
+    "electron": "run-s build pure-electron",
+    "pure-electron": "electron .",
     "dev": "vite",
     "build": "cross-env NODE_ENV=production && vite build",
     "serve": "vite preview"
@@ -32,7 +36,9 @@
     "vite-plugin-mpa": "1.0.3"
   },
   "dependencies": {
+    "electron": "^16.0.3",
     "monaco-editor": "^0.30.1",
+    "npm-run-all": "^4.1.5",
     "svelte-spa-router": "^3.2.0"
   }
 }

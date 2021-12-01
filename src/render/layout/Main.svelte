@@ -7,10 +7,10 @@
 </Content>
 
 <style>
-  .main {
+  /* .main {
     flex: auto;
     overflow: auto;
     position: relative;
     flex-grow: 1;
-  }
+  } */
 </style>
