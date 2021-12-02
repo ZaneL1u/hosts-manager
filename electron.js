@@ -1,11 +1,13 @@
-import { join } from "path";
-import { app, BrowserWindow } from "electron";
+const { join } = require("path");
+const electron = require("electron");
+const { app, BrowserWindow, Menu } = electron;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow() {
+  Menu.setApplicationMenu(null);
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 768,
@@ -14,7 +16,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL(`file://${join(__dirname, "./dist/index.html")}`);
+  mainWindow.loadURL(`file://${join(__dirname, "./dist/render/index.html")}`);
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
