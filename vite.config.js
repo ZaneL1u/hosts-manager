@@ -4,31 +4,19 @@ import { resolve, join } from "path";
 
 import legacy from "@vitejs/plugin-legacy";
 
-export default defineConfig((e1, e2) => {
+export default defineConfig(() => {
   return {
     base: "./",
-    root: join(__dirname, "src/render"), // 指向渲染进程目录
+    root: join(__dirname, "src"), // 指向渲染进程目录
+    port: 4000,
     resolve: {
       alias: {
-        "@": resolve(__dirname, "./src/render"),
+        "@": resolve(__dirname, "./src"),
       },
     },
     plugins: [
       legacy(),
       svelte({ compilerOptions: { generate: "dom", hydratable: true } }),
     ],
-    build: {
-      outDir: join(__dirname, "dist/render"),
-      assetsDir: "",
-      rollupOptions: {
-        output: {
-          format: "cjs", // 配置 Rollup 打包输出 CommonJs 格式
-        },
-        external: ["electron"], // 告诉 Rollup 不要去打包 electron
-      },
-    },
-    optimizeDeps: {
-      exclude: ["electron"], // 告诉 Vite 不要转换 electron 模块
-    },
   };
 });
