@@ -1,5 +1,5 @@
 <script>
-  import * as monaco from "monaco-editor/esm/vs/editor/editor.api.js";
+  import * as monaco from "monaco-editor/esm/vs/editor/editor.main.js";
   import "monaco-editor/esm/vs/basic-languages/shell/shell.contribution";
 
   import { onMount } from "svelte";
@@ -25,6 +25,6 @@
 <style>
   #monaco {
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 </style>
